@@ -32,8 +32,6 @@ $ sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev li
 
 # 18.04/ Buster
 $ sudo apt-get install git build-essential cmake libuv1-dev libmicrohttpd-dev libssl-dev gcc-8 g++-8
-$ export CC=gcc-8
-$ export CXX=g++-8
 
 # Clone Repository
 $ git clone https://github.com/turtlecoin/ninjarig.git && cd ninjarig
@@ -42,16 +40,16 @@ $ git clone https://github.com/turtlecoin/ninjarig.git && cd ninjarig
 $ mkdir build && cd build
 
 # For CPU Only
-$ cmake -DWITH_CUDA=OFF -DWITH_OPENCL=OFF .. -DCMAKE_BUILD_TYPE=RELEASE
+$ cmake -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DWITH_CUDA=OFF -DWITH_OPENCL=OFF .. -DCMAKE_BUILD_TYPE=RELEASE
 
 # For CPU and OpenCL
-$ cmake -DWITH_CUDA=OFF .. -DCMAKE_BUILD_TYPE=RELEASE
+$ cmake -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DWITH_CUDA=OFF .. -DCMAKE_BUILD_TYPE=RELEASE
 
 # For CPU and CUDA
-$ cmake -DWITH_OPENCL=OFF .. -DCMAKE_BUILD_TYPE=RELEASE
+$ cmake -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DWITH_OPENCL=OFF .. -DCMAKE_BUILD_TYPE=RELEASE
 
 # For CPU, OpenCL, and CUDA
-$ cmake .. -DCMAKE_BUILD_TYPE=RELEASE
+$ cmake .. -DCMAKE_C_COMPILER=gcc-8 -DCMAKE_CXX_COMPILER=g++-8 -DCMAKE_BUILD_TYPE=RELEASE
 $ make
 ```
 
